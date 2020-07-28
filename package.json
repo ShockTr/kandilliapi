@@ -1,0 +1,26 @@
+{
+  "name": "depremapi",
+  "version": "1.0.0",
+  "description": "A simple api for using earthquake data from kandilli rasathanesi",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "api",
+    "earthquake",
+    "kandilli",
+    "turkey"
+  ],
+  "author": "Bora Kayık",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.4",
+    "puppeteer": "^5.2.1",
+    "request": "^2.88.2"
+  }
+}

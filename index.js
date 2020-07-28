@@ -6,18 +6,18 @@ const fs = require('fs');
 let config = fs.readFileSync('config.json');
 let delete1 = JSON.parse(config).delete;
 async function fetchDeprem(){
-    const browser = await puppeteer.launch()
-    const page = await browser.newPage()
-    await page.goto("http://www.koeri.boun.edu.tr/scripts/lst0.asp")
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto("http://www.koeri.boun.edu.tr/scripts/lst0.asp");
 
     const src = await page.evaluate(() => {
         let srctext = document.getElementsByTagName("pre").item(0).innerText
-        return srctext
+        return srctext;
 
-    })
-    let text = src.replace(delete1, '')
-    text = text.split('\n')
-    let depremler = []
+    });
+    let text = src.replace(delete1, '');
+    text = text.split('\n');
+    let depremler = [];
     for(let i = 0; 498 > i; i++){
         depremler[i] = {
             "Tarih" : text[i].slice(0, 10),
@@ -33,16 +33,16 @@ async function fetchDeprem(){
         }
     }
     return depremler
-}
+};
 app.get('/', (req, res) => {
     fetchDeprem().then(data => {
         res.json({
             "depremler" : data
         })
     })
-})
-
-const listener = app.listen(443, (err) => {
+});
+const port =  process.env.PORT  || 443;
+const listener = app.listen(port , (err) => {
     if (err) throw err;
     console.log(`API ${listener.address().port} portunda hazır!`);
 });

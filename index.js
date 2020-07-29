@@ -13,7 +13,6 @@ async function fetchDeprem(){
     const src = await page.evaluate(() => {
         let srctext = document.getElementsByTagName("pre").item(0).innerText
         return srctext;
-
     });
     let text = src.replace(delete1, '');
     text = text.split('\n');
@@ -32,6 +31,7 @@ async function fetchDeprem(){
             "Niteligi" : text[i].slice(121, ),
         }
     }
+    browser.close()
     return depremler
 };
 app.get('/', (req, res) => {
@@ -41,10 +41,8 @@ app.get('/', (req, res) => {
         })
     })
 });
-const port =  process.env.PORT  || 443;
+const port =  process.env.PORT  || 3000;
 const listener = app.listen(port , (err) => {
     if (err) throw err;
     console.log(`API ${listener.address().port} portunda hazır!`);
 });
-
-

@@ -17,3 +17,6 @@ npm i
 # host local server
 npm run dev
 ```
+
+## Live Version
+[Click Here](https://borakayik.com/api/deprem)

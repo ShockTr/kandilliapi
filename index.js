@@ -30,7 +30,7 @@ async function fetchDeprem(){
             "Niteligi" : text[i].slice(121, ),
         }
     }
-    browser.close()
+    await browser.close()
     return depremler
 }
 app.get('/', (req, res) => {

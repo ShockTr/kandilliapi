@@ -1,5 +1,5 @@
 # KandilliAPI
-A simple API for getting data from kandilli rasathanesi
+A simple API for getting data from [Kandilli observatory](http://www.koeri.boun.edu.tr/scripts/lst0.asp)
 ## Building
 
 ```bash
